@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kasese Flood Analysis – 2024</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .main-container {
+      background: #fff;
+      max-width: 900px;
+      margin: 40px auto 40px auto;
+      padding: 40px 32px 32px 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(44,62,80,0.10), 0 1.5px 4px rgba(44,62,80,0.06);
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 8px;
+    }
+    h3 {
+      font-size: 1.15em;
+      margin-top: 32px;
+      margin-bottom: 10px;
+      color: #34495e;
+    }
+    p {
+      color: #333;
+      margin: 0 0 18px 0;
+      font-size: 1.05em;
+    }
+    ul {
+      margin: 0 0 18px 30px;
+      padding: 0;
+      color: #333;
+      font-size: 1.05em;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .img-section {
+      margin: 32px 0;
+      text-align: center;
+    }
+    .img-section img {
+      max-width: 95%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 8px;
+    }
+    .caption {
+      font-size: 0.98em;
+      color: #666;
+      margin-bottom: 0;
+      margin-top: 4px;
+    }
+    @media (max-width: 600px) {
+      .main-container {
+        padding: 18px 4vw 18px 4vw;
+      }
+      h1 { font-size: 1.4em; }
+      h2 { font-size: 1.1em; }
+      h3 { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <h1>Kasese Flood Analysis – 2024</h1>
+    <h2>Satellite-Based Assessment of Flood Patterns</h2>
+
+    <p>
+      Flooding is a recurring natural disaster in Uganda, particularly affecting districts like Kasese within the Rwenzori mountain ranges. Steep terrain, high rainfall, and dense river networks contribute to seasonal flooding that threatens lives, property, and infrastructure. This project assessed flood patterns in Kasese throughout 2024 using Sentinel-1 Synthetic Aperture Radar (SAR) imagery and the JRC Global Surface Water dataset. The goal: identify the month with the highest flood extent (excluding permanent water bodies) to support disaster management and urban planning.
+    </p>
+
+    <h3>Objective</h3>
+    <p>
+      Determine the month in 2024 when Kasese experienced the most extensive flooding (excluding permanent water bodies). By leveraging open-source satellite data and cloud-based geospatial tools, this analysis provides actionable insights for flood preparedness, risk mapping, and climate resilience strategies.
+    </p>
+
+    <h3>Data Sources and Tools</h3>
+    <ul>
+      <li><strong>Sentinel-1 SAR:</strong> C-band radar imagery (VV, ascending)</li>
+      <li><strong>JRC Global Surface Water Dataset:</strong> Occurrence layer to detect permanent water (≥90%)</li>
+      <li><strong>Region of Interest:</strong> Kasese District, Western Uganda</li>
+      <li><strong>Platform:</strong> Google Earth Engine (for data access and processing)</li>
+    </ul>
+
+    <h3>Methodology</h3>
+    <p>
+      The workflow was built in Google Earth Engine and included:
+    </p>
+    <ul>
+      <li>Masking permanent water bodies using the JRC occurrence layer</li>
+      <li>Filtering Sentinel-1 SAR images by date, polarization, and pass direction</li>
+      <li>Reducing speckle noise with a smoothing filter</li>
+      <li>Classifying flooded areas using a -15 dB threshold on radar backscatter</li>
+      <li>Creating monthly composites and calculating flooded area for each month</li>
+      <li>Ranking results to identify the peak flood period</li>
+    </ul>
+
+    <div class="img-section">
+      <img src="../images/google_earth.png" alt="Model diagram showing flood detection workflow with Sentinel-1 and JRC masking" />
+      <div class="caption">Flood detection workflow using Sentinel-1 SAR and JRC masking</div>
+    </div>
+
+    <h3>Context: Flood Vulnerability in Kasese</h3>
+    <p>
+      Kasese District is highly vulnerable to floods due to its proximity to the Rwenzori Mountains and the Nyamwamba River, which frequently overflows during heavy rains. The region has seen increasing damage to infrastructure—especially roads, schools, and bridges—with significant impacts on displaced families. Field observations and local reports confirm the scale of damage following early-year rainfall.
+    </p>
+
+    <div class="img-section">
+      <img src="../images/image22.png" alt="Flood aftermath in Kasese showing damage to buildings and infrastructure" />
+      <div class="caption">Flood aftermath in Kasese: damage to buildings and infrastructure</div>
+    </div>
+
+    <h3>Results and Analysis</h3>
+    <p>
+      The monthly flood extent analysis revealed that <strong>January</strong> recorded the highest level of flooding in 2024. The estimated flooded area, excluding permanent water bodies, was approximately <strong>28.90 square kilometers</strong>. This aligns with the region’s climatology, as January is typically part of the heavy rain cycle in western Uganda.
+    </p>
+    <div class="img-section">
+      <img src="../images/January.png" alt="Monthly flood extent map for Kasese in 2024" />
+      <div class="caption">Monthly flood extent map for Kasese in 2024</div>
+    </div>
+    <p>
+      Floodwater was concentrated along riverbanks and low-lying urban areas, posing significant risks to communities in Kilembe, Nyamwamba, and Katwe-Kabatoro. Monthly composites provided a clearer temporal profile of flood risk evolution throughout the year.
+    </p>
+    <div class="img-section">
+      <img src="../images/Kasese_floods.png" alt="Flood extent map for January 2024 showing affected areas in Kasese" />
+      <div class="caption">Flood extent map for January 2024: affected areas in Kasese</div>
+    </div>
+
+    <h3>Conclusion</h3>
+    <ul>
+      <li><strong>Peak Flood Month:</strong> January</li>
+      <li><strong>Flooded Area (excluding permanent water):</strong> 28.90 km²</li>
+      <li><strong>Key Tools:</strong> Sentinel-1 SAR, JRC GSW, Google Earth Engine</li>
+      <li><strong>Use Case:</strong> Disaster planning, infrastructure protection, early warning systems</li>
+    </ul>
+    <p>
+      This flood analysis offers valuable insights for disaster management, local government, and urban planning. By integrating radar satellite imagery and global water datasets, the study effectively isolated and quantified temporary flood events. The findings reinforce the importance of remote sensing tools and platforms like Google Earth Engine in delivering timely, data-driven support for flood resilience efforts.
+    </p>
+    <p>
+      Going forward, similar workflows can be expanded to analyze multi-year flood patterns, integrate rainfall data, and model flood recurrence intervals to support climate adaptation strategies in western Uganda and beyond.
+    </p>
+  </div>
+</body>
+</html>

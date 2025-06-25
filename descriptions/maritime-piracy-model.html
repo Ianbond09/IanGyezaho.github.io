@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Global Maritime Piracy – Hexbin Density Analysis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Global Maritime Piracy – Hexbin Density Analysis</h2>
+  <img src="../images/Model.png" alt="Full QGIS model showing hexbin workflow for piracy incident aggregation" />
+
+  <p>
+    This project visualized the global distribution of maritime piracy incidents using Anti-shipping Activity Messages (ASAM) provided by the National Geospatial-Intelligence Agency’s Maritime Safety Information portal. The incidents were aggregated over a hexagonal grid to create a density map that highlighted piracy hotspots across international waters.<br><br>
+
+    The geoprocessing model, developed in QGIS, followed these key steps:<br>
+    — The incident point data was reprojected into an equal-area coordinate system.<br>
+    — A global hexagonal grid was generated based on a defined cell size.<br>
+    — Grids intersecting at least one piracy incident were selected.<br>
+    — Piracy incidents were counted within each selected hexagon.<br><br>
+
+    This approach enabled a clearer understanding of piracy patterns and supported risk evaluation for maritime safety operations.
+  </p>
+</body>
+</html>
